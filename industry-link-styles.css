@@ -1,0 +1,87 @@
+/* 
+** industry-link-styles.css
+*/
+
+.industry-link {
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display:table;
+    overflow: hidden;
+    text-align: center;
+    background-size: 100% auto;
+    transition: background-size .75s;
+  }
+.industry-link:hover {
+    background-size: 110% auto;
+}
+.block-overlay {
+    height: 100%;
+    width: 100%;
+    padding:20px;
+    transition: 400ms all;
+    display: table-cell;
+    vertical-align: middle;
+}
+.industry-link  .block-overlay{
+  background-color: transparent;
+  opacity: 0;
+}
+.industry-link:hover .block-overlay { 
+  background-color: rgba(0,0,0,0.5);
+  opacity: 1;
+}
+.industry-link .block-overlay > *{
+  transform: translateY(-200px);
+  transition: transform .5s, opacity .3s;
+}
+.industry-link:hover .block-overlay > *{
+  transform: translateY(0px);
+}
+.industry-link a:not(.fusion-button) {
+  color:#fff;
+}
+.industry-link a:not(.fusion-button):hover {
+  color:#24b4af;
+}
+/*button*/
+.industry-link .fusion-button.button-x {
+  border-width:1px;
+  border-color:#ffffff;
+  background: transparent;
+  margin-left: auto;
+  margin-right: auto;
+}
+.industry-link .fusion-button.button-x:hover {
+  background: #24b4af;
+}
+.industry-link .fusion-button.button-x .fusion-button-icon-divider{
+  border-color:#ffffff;
+
+}
+.industry-link .fusion-button.button-x:hover .fusion-button-text,
+.industry-link  .fusion-button.button-x:focus .fusion-button-text,
+.industry-link  .fusion-button.button-x:active .fusion-button-text,
+.industry-link  .fusion-button.button-x:active{
+  color:#fff;
+  
+}
+.industry-link .fusion-button.button-x:hover {
+  border-width:1px;
+  border-color:transparent;
+
+}
+.industry-link .fusion-button.button-x:hover .fusion-button-icon-divider,
+.industry-link  .fusion-button.button-x:hover .fusion-button-icon-divider,
+.industry-link  .fusion-button.button-x:active .fusion-button-icon-divider{
+  border-color:#24b4af;
+
+}
+.industry-link .fusion-button.button-x{
+  width:auto;
+
+}
+.industry-link *:not(a):not(.fusion-button-text):not(i){
+  color: #fff;
+}
