@@ -35,24 +35,6 @@ function fusion_element_industry_link_block() {
           'param_name'  => 'element_content',
           'value'     => '',
           'placeholder' => true),
-        // array(
-        //   'type'        => 'colorpickeralpha',
-        //   'heading'     => esc_attr__( 'Select Link Text Color', 'fusion-builder' ),
-        //   'description' => esc_attr__( 'Select link text color and opacity ', 'fusion-builder' ),
-        //   'param_name'  => 'link_color',
-        //   'value'       => '',),
-        // array(
-        //   'type'        => 'colorpickeralpha',
-        //   'heading'     => esc_attr__( 'Select Overlay Background Color', 'fusion-builder' ),
-        //   'description' => esc_attr__( 'Select overlay background color and opacity (inactive state)', 'fusion-builder' ),
-        //   'param_name'  => 'overlay_color',
-        //   'value'       => '',),
-        // array(
-        //   'type'        => 'colorpickeralpha',
-        //   'heading'     => esc_attr__( 'Select Overlay Background Hover Color', 'fusion-builder' ),
-        //   'description' => esc_attr__( 'Select overlay background color and opacity (hover state)', 'fusion-builder' ),
-        //   'param_name'  => 'overlay_color_hover',
-        //   'value'       => '',),
         array(
           'type'        => 'upload',
           'heading'     => esc_attr__( 'Background Image', 'fusion-builder' ),
@@ -64,6 +46,12 @@ function fusion_element_industry_link_block() {
           'heading'     => esc_attr__( 'Height', 'fusion-builder' ),
           'description' => esc_attr__( 'Element height in px... include px in value eg: "300px", default is 300px', 'fusion-builder' ),
           'param_name'  => 'height',
+          'value'       => '',),
+        array(
+          'type'        => 'textfield',
+          'heading'     => esc_attr__( 'Spacing', 'fusion-builder' ),
+          'description' => esc_attr__( 'Spacing between the button and link px... include px in value eg: "10px", default is 10px', 'fusion-builder' ),
+          'param_name'  => 'spacing',
           'value'       => '',),
          array(
           'type'        => 'textfield',
@@ -84,13 +72,12 @@ function random_password( $length = 22 ) {
 
 function industry_link( $atts, $content = null ){
     $a = shortcode_atts( array(
-    'background_image' => '',
-    'overlay_color' => '',
-    'overlay_color_hover' => '',
     'link_url' => '',
     'element_content' => '',
+    'background_image' => '',
     'height' => '',
-    'link_color' =>''
+    'spacing' => '',
+    'padding' => ''
     ), $atts);
 
     $id = random_password();
@@ -100,66 +87,23 @@ function industry_link( $atts, $content = null ){
           padding:' . $a["padding"] . ';
         }
        </style>';
-        $height = '300px';
-        if($a["height"]) $height = $a["height"];
+
+    $height = '300px';
+    if($a["height"]) $height = $a["height"];
+
+    $spacing = '10px';
+    if($a["spacing"]) $spacing = $a["spacing"];
+
     $block = '<div class="industry-link" style="height:' . $height . '; background-image:url(' . $a["background_image"] . ')">
       <div id="' . $id . '" class="block-overlay">' . 
       '  <a class="fusion-button button-flat fusion-button-square button-large button-default button-x" target="_self" href="' . $a['link_url'] . '">
             <span class="fusion-button-text">View Case Study</span>
-          </a><hr>'
+          </a>
+      <div class="fusion-sep-clear"></div>
+      <div class="fusion-separator fusion-full-width-sep sep-none" style="margin-left: auto;margin-right: auto;margin-top:;margin-bottom:'. $spacing .';"></div>'
       . $content . '</div>' .$styles . '</div>';
     return $block;
 }
 add_shortcode('industrylink', 'industry_link');
 
-
-
-
-
-// /* image overlay defaults to be set per project */
-// .image-overlay-link {
-//     width: 100%;
-//     background-size: cover;
-//     background-repeat: no-repeat;
-//     background-position: center;
-//     display:table;
-// }
-// .block-overlay {
-//     height: 100%;
-//     width: 100%;
-//     padding:20px;
-//     transition: 400ms all;
-//     display: table-cell;
-//     vertical-align: middle;
-// }
-// .image-overlay-link a { 
-//   padding:;
-//   background-color:transparent;
-//   height: 200px;
-
-// }
-// .image-overlay-link a *{
-//     color: ;
-//     opacity: 0;
-// }
-// .image-overlay-link:hover a { 
-//   background-color: rgba(0,0,0,.4);
-// }
-// .image-overlay-link:hover a *{
-//     opacity: 1;
-// }
-
-
-
-
-
-
-// function spacesTable(){
-//   $spaces = new WP_Query( array(
-//     'post_type' => 'event_space'
-//   ));
-//   return print_r($spaces);
-// }
-
-// add_shortcode('event_spaces_table','spacesTable');
 ?>

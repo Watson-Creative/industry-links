@@ -32,6 +32,9 @@
   background-color: rgba(0,0,0,0.5);
   opacity: 1;
 }
+.industry-link  .block-overlay p:last-of-type {
+  margin-bottom: 0;
+}
 .industry-link .block-overlay > *{
   transform: translateY(-200px);
   transition: transform .5s, opacity .3s;
