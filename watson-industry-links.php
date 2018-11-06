@@ -94,14 +94,17 @@ function industry_link( $atts, $content = null ){
     $spacing = '10px';
     if($a["spacing"]) $spacing = $a["spacing"];
 
+    $tags = array("<p>", "</p>", "<h1>", "</h1>", "<h2>", "</h2>", "<h3>", "</h3>");
+    $content = str_replace($tags, "", $content);
+
     $block = '<div class="industry-link" style="height:' . $height . '; background-image:url(' . $a["background_image"] . ')">
       <div id="' . $id . '" class="block-overlay">' . 
       '  <a class="fusion-button button-flat fusion-button-square button-large button-default button-x" target="_self" href="' . $a['link_url'] . '">
             <span class="fusion-button-text">View Case Study</span>
           </a>
       <div class="fusion-sep-clear"></div>
-      <div class="fusion-separator fusion-full-width-sep sep-none" style="margin-left: auto;margin-right: auto;margin-top:;margin-bottom:'. $spacing .';"></div>'
-      . $content . '</div>' .$styles . '</div>';
+      <div class="fusion-separator fusion-full-width-sep sep-none" style="margin-left: auto;margin-right: auto;margin-top:;margin-bottom:'. $spacing .';"></div><p>'
+      . $content . '</p></div>' .$styles . '</div>';
     return $block;
 }
 add_shortcode('industrylink', 'industry_link');
