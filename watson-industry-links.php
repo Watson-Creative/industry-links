@@ -21,6 +21,7 @@ function fusion_element_industry_link_block() {
     fusion_builder_map( array(
         'name'            => esc_attr__( 'Industry Link', 'fusion-builder' ),
         'shortcode'       => 'industrylink',
+        'icon'       => 'fusiona-image',
         'params'          => array(
           array(
           'type'        => 'link_selector',
@@ -44,7 +45,7 @@ function fusion_element_industry_link_block() {
         array(
           'type'        => 'textfield',
           'heading'     => esc_attr__( 'Height', 'fusion-builder' ),
-          'description' => esc_attr__( 'Element height in px... include px in value eg: "300px", default is 300px', 'fusion-builder' ),
+          'description' => esc_attr__( 'Element height in px... include px in value eg: "300px", default is 321px', 'fusion-builder' ),
           'param_name'  => 'height',
           'value'       => '',),
         array(
@@ -88,7 +89,7 @@ function industry_link( $atts, $content = null ){
         }
        </style>';
 
-    $height = '300px';
+    $height = '321px';
     if($a["height"]) $height = $a["height"];
 
     $spacing = '10px';

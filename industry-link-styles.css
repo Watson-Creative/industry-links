@@ -10,11 +10,11 @@
     display:table;
     overflow: hidden;
     text-align: center;
-    background-size: 100% auto;
+    background-size: auto 100%;
     transition: background-size .75s;
   }
 .industry-link:hover {
-    background-size: 110% auto;
+    background-size: auto 110%;
 }
 .block-overlay {
     height: 100%;
@@ -34,6 +34,9 @@
 }
 .industry-link  .block-overlay p:last-of-type {
   margin-bottom: 0;
+}
+.industry-link  .block-overlay p:empty {
+  display: none;
 }
 .industry-link .block-overlay > *{
   transform: translateY(-200px);
@@ -87,4 +90,12 @@
 }
 .industry-link *:not(a):not(.fusion-button-text):not(i){
   color: #fff;
+}
+@media (max-width: 800px){
+  .industry-link {
+      background-size:  100% auto;
+  }
+  .industry-link:hover {
+      background-size:  110% auto;
+  }
 }
